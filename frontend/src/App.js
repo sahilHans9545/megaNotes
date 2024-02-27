@@ -64,6 +64,7 @@ function App() {
                 user ? <Navigate to="/" /> : <Signup setUser={setUser} />
               }
             ></Route>
+            <Route path="*" element={<Navigate to="/" />}></Route>
           </Routes>
         </Router>
       )}
