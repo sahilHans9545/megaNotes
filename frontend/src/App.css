@@ -1,0 +1,212 @@
+.notesGroup {
+  width: 350px;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  padding: 2rem 0;
+  padding-right: 0;
+  height: 100vh;
+}
+
+.notesSection {
+  width: calc(100% - 350px);
+  height: 100vh;
+  background-color:#DAE5F5;
+  position: relative;
+
+}
+
+.notesSection .blank_notes {
+  width: 600px;
+  padding: 2rem;
+  max-width: 100%;
+  text-align: center;
+}
+
+.notesBgImg {
+  width: 500px;
+  max-width: 100%;
+}
+
+.pocketNotesHead {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.encryptedLine {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
+
+
+
+
+/* notes Group */
+
+.create-btnParent {
+  padding-right: 1.8rem;
+  padding-left: 0.6rem;
+}
+
+.createNotesBtn {
+  background-color: #16008B;
+  font-size: 4rem;
+  font-weight: 600;
+  bottom: 2rem;
+  right: 20px;
+}
+
+.createNotesBtn img{
+  width: 25px;
+}
+
+
+
+.group {
+  cursor: pointer;
+}
+
+.notesGroup .group * {
+  pointer-events: none;
+}
+
+.selectedGroup {
+  background: #2F2F2F2B;
+  border-radius: 15px;
+}
+
+ .group .group-icon {
+  width: 57px;
+  height: 57px;
+}
+
+.group .group-icon {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 1.2rem;
+
+}
+
+.group .group-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+
+
+@media screen and (max-width:900px) {
+  .notesGroup {
+    width: 300px;
+
+  }
+
+  .notesSection {
+    width: calc(100% - 300px);
+
+  }
+
+  .create-btnParent {
+    padding-right: 1.2rem;
+    padding-left: 0rem;
+  }
+
+  .createNotesBtn {
+    font-size: 1rem;
+  }
+
+}
+.group-name{
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+@media screen and (max-width:767px) {
+  .notesGroup {
+    width: 100%;
+  }
+
+  .notesSection {
+    width: 100%;
+    height: 100vh;
+    display: none;
+  }
+
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .mobile-show {
+    display: block;
+  }
+
+
+}
+
+
+@media screen and (max-width:568px) {
+
+  .notesSection .group {
+    gap: 0.7rem;
+  }
+
+  .notesSection .group .group-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .notesSection .group .group-name {
+    font-size: 18px;
+    margin-left: 7px;
+  }
+  html {
+    font-size: 14px;
+  }
+
+}
+
+
+
+@media screen and (min-width:767px) {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #000000A1;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+
+  .notesGroup ::-webkit-scrollbar-track {
+    background: #D9D9D9 ;
+  }
+   
+}
+
+.userPage{
+  width: 100%;
+  height: 100vh;
+  background: #DAE5F5;
+}
+.userPage .pocketNotesHead{
+  font-size: 2rem;
+}

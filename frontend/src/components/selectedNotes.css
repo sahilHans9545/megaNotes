@@ -1,0 +1,108 @@
+.notes-heading {
+    background: #001F8B;
+    color: #fff;
+}
+
+.notes-heading .group-name {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.EnterNotes{
+    background: #001F8B;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+}
+
+.EnterNotes textarea{
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 9px;
+    font-size: large;
+    resize: none;
+
+}
+
+.EnterNotes img{
+    position: absolute;
+    width: 28px;
+    bottom: 2rem;
+    right: 2.5rem;
+    cursor: pointer;
+}
+
+.notes-upper-section {
+    height: calc(100vh - 200px);
+}
+
+#Notes{
+    padding:1.5rem 3.5rem 1.5rem 2.5rem ;
+    overflow: auto;
+
+}
+
+#Notes .noteItem{
+    background: #fff;
+    padding: 1rem 1rem 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.noteItem span{
+    width: 8px;
+    height: 8px;
+    background: #353535;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+#Notes .noteItem .noteTime{
+    font-weight: 600;
+    
+}
+
+#Notes .noteItem>div{
+    flex-shrink: 0;
+}
+
+@media screen and (max-width:990px) {
+    #Notes{
+        padding: 2.5rem 22px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .notes-heading {
+            height: 68px;
+        }
+    
+    .notes-upper-section {
+        height: calc(100vh - 140px);
+    }
+
+    #Notes {
+        height: calc(100% - 68px);
+        padding: 2rem 22px;
+        overflow: auto;
+    }
+
+    .EnterNotes {
+        height: 140px;
+        padding: 1rem 1.1rem;
+    } 
+    
+    .EnterNotes img {
+        width: 25px;
+        bottom: 1.8rem;
+        right: 1.9rem;
+    }
+
+    
+    
+}

@@ -1,0 +1,100 @@
+#createNoteTab{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 6px;
+    width: 500px;
+    max-width: 92%;
+    background:#fff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 2px 0px rgba(0,0,0,0.1);
+}
+
+.createNodeHead{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+#createNoteTab input{
+    background: #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-radius: 22px;
+    /* width: 100%; */
+    flex-grow: 1;
+    padding: 5px 1.2rem;
+}
+
+#createNoteTab .fieldName{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.colorIcon{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.colorIcon.selected{
+    border: 1px solid green;
+}
+
+#createNoteTab .createBtn{
+    background: #001F8B;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    padding: 1px 1.2rem;
+    width: 110px;
+    cursor: pointer;
+}
+
+.bg-overlay{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(47, 47, 47, 0.75);
+}
+
+
+
+@media screen  and (max-width:568px){
+    #createNoteTab {
+    padding: 1.5rem 1rem;
+    }
+
+    #createNoteTab .createBtn {
+        padding: 7px 1.2rem;    
+        width: 230px;
+        max-width:100%;
+    }
+
+
+                
+        
+    .createNodeHead {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    #createNoteTab input {
+        width: 100%;
+        flex-grow: 0;
+        font-size: 0.8rem;
+    }
+
+    #createNoteTab .fieldName {
+        font-size: 1.13rem;
+        font-weight: 500;
+        flex-shrink: 0;
+    }
+
+    .colorIcon{
+        /* flex-wrap:wrap; */
+    }
+
+}
