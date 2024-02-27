@@ -6,6 +6,7 @@ import EnterIconBlue from "../images/enterNotesBlue.png";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { generateAbbreviation } from "../utils/abbreviation";
+import apiUrl from "../apiUrl";
 
 function SelectedNotes(props) {
   const [noteData, setNoteData] = useState({});
@@ -20,14 +21,11 @@ function SelectedNotes(props) {
     try {
       const { token } = JSON.parse(localStorage.getItem("user"));
 
-      const response = await axios.get(
-        `http://localhost:8000/api/notes/${props.id}`,
-        {
-          headers: {
-            Authorization: `bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrl}/api/notes/${props.id}`, {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      });
       setNoteData(response.data.notes);
       setGroupColor(response.data.groupColor);
       setGroupName(response.data.groupName);
@@ -72,7 +70,7 @@ function SelectedNotes(props) {
       let [strTime, strDate] = getTimeAndDate();
       const options = {
         method: "post",
-        url: `http://localhost:8000/api/addNote/${props.id}`,
+        url: `${apiUrl}/api/addNote/${props.id}`,
         data: {
           content: message,
           time: strTime,

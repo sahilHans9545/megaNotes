@@ -1,5 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import apiUrl from "../apiUrl";
 
 export const handleLogin = async (email, password, rememberMe, setUser) => {
   try {
@@ -9,7 +10,7 @@ export const handleLogin = async (email, password, rememberMe, setUser) => {
     }
     const options = {
       method: "post",
-      url: "http://localhost:8000/api/login",
+      url: `${apiUrl}/api/login`,
       data: {
         email,
         password,
@@ -48,7 +49,7 @@ export const handleSignUp = async (email, password, setUser) => {
     }
     const options = {
       method: "post",
-      url: "http://localhost:8000/api/register",
+      url: `${apiUrl}/api/register`,
       data: {
         email,
         password,

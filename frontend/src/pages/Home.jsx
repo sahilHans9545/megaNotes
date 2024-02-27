@@ -4,6 +4,7 @@ import NotesSection from "../components/NotesSection";
 import CreateNoteTab from "../components/CreateNoteTab";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import apiUrl from "../apiUrl";
 
 const Home = () => {
   const [newGroup, setNewGroup] = useState({});
@@ -25,7 +26,7 @@ const Home = () => {
       const { token } = JSON.parse(localStorage.getItem("user"));
       const options = {
         method: "post",
-        url: "http://localhost:8000/api/createGroup",
+        url: `${apiUrl}/api/createGroup`,
         data: {
           groupName: newGroup.groupName,
           groupColor: newGroup.groupColor,
@@ -57,7 +58,7 @@ const Home = () => {
       const token = JSON.parse(localStorage.getItem("user")).token;
       if (!token) {
       } else {
-        const response = await axios.get(`http://localhost:8000/api/groups`, {
+        const response = await axios.get(`${apiUrl}/api/groups`, {
           headers: {
             Authorization: `bearer ${token}`,
           },

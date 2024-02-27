@@ -12,6 +12,7 @@ import Signup from "./pages/signup";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import apiUrl from "./apiUrl";
 
 function App() {
   const [user, setUser] = useState("");
@@ -23,7 +24,7 @@ function App() {
     try {
       const token = JSON.parse(localStorage.getItem("user")).token;
       if (!token) return;
-      const response = await axios.get(`http://localhost:8000/api/getUser`, {
+      const response = await axios.get(`${apiUrl}/api/getUser`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
