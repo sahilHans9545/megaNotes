@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const groupRoutes = require("./routes/groupRoutes");
+const additionalRoutes = require("./routes/additionalRoutes");
 const path = require("path");
 
 const app = express();
@@ -13,6 +14,7 @@ const PORT = 8000;
 dotenv.config();
 app.use("/api", userRoutes);
 app.use("/api", groupRoutes);
+app.use("/api", additionalRoutes);
 
 // *************** DEPLOYMENT ***************
 
