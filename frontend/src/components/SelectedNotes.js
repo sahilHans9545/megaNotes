@@ -7,12 +7,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { generateAbbreviation } from "../utils/abbreviation";
 import apiUrl from "../apiUrl";
+import { useNavigate } from "react-router-dom";
 
 function SelectedNotes(props) {
   const [noteData, setNoteData] = useState({});
   const [message, setMessage] = useState("");
   const [groupName, setGroupName] = useState("");
   const [groupColor, setGroupColor] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     getNotes();
   }, [props.id]);
@@ -87,6 +89,10 @@ function SelectedNotes(props) {
       ]);
     } catch (error) {
       toast(error.message);
+      if (error.response.status === 401) {
+        props.setUser("");
+        navigate("/login");
+      }
     }
   };
   const handleMessage = (e) => {

@@ -46,6 +46,7 @@ const Home = ({ setUser }) => {
         selectedGroup={selectedGroup}
         setSelectedGroup={setSelectedGroup}
         noteAddedCount={noteAddedCount}
+        setUser={setUser}
       />
       {showCreateTab && (
         <CreateNoteTab

@@ -32,7 +32,11 @@ function NotesSection(props) {
           </p>
         </div>
       ) : (
-        <SelectedNotes Notes={Notes} id={props.selectedGroup} />
+        <SelectedNotes
+          Notes={Notes}
+          id={props.selectedGroup}
+          setUser={props.setUser}
+        />
       )}
     </div>
   );
