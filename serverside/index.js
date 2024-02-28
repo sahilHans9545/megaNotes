@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const router = require("./routes/routes");
+const userRoutes = require("./routes/userRoutes");
 const groupRoutes = require("./routes/groupRoutes");
 const path = require("path");
 
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 const PORT = 8000;
 dotenv.config();
-app.use("/api", router);
+app.use("/api", userRoutes);
 app.use("/api", groupRoutes);
 
 // *************** DEPLOYMENT ***************
