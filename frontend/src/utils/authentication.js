@@ -26,13 +26,13 @@ export const handleLogin = async (email, password, rememberMe, setUser) => {
     });
     console.log(result);
 
-    if (rememberMe) {
-      const userData = {
-        userInfo: result.data.userInfo,
-        token: result.data.token,
-      };
-      localStorage.setItem("user", JSON.stringify(userData));
-    }
+    // if (rememberMe) {
+    const userData = {
+      userInfo: result.data.userInfo,
+      token: result.data.token,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
+    // }
     console.log(result);
     return true;
   } catch (err) {
@@ -64,6 +64,11 @@ export const handleSignUp = async (email, password, setUser) => {
         userId: result.data.userInfo.userId,
       },
     });
+    const userData = {
+      userInfo: result.data.userInfo,
+      token: result.data.token,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
 
     return true;
   } catch (err) {
