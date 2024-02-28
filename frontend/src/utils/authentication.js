@@ -25,14 +25,12 @@ export const handleLogin = async (email, password, rememberMe, setUser) => {
       },
     });
 
-    // if (rememberMe) {
     const userData = {
       userInfo: result.data.userInfo,
       token: result.data.token,
     };
     localStorage.setItem("user", JSON.stringify(userData));
-    // }
-    console.log(result);
+
     return true;
   } catch (err) {
     toast(err.response.data.message);

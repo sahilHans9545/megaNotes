@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./createNoteTab.css";
+import "./styles/createNoteTab.css";
 import apiUrl from "../apiUrl";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -64,9 +64,9 @@ function CreateNoteTab(props) {
         .classList.remove("selectedGroup");
       document.querySelector("#groups .group").classList.add("selectedGroup");
     } catch (err) {
-      // toast(err.response.data.message);
+      toast(err.response?.data?.message);
 
-      if (err.response.status === 401) {
+      if (err?.response?.status === 401) {
         toast(err.response.data.error);
         props.setUser("");
         navigate("/login");

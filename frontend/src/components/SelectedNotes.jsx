@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./selectedNotes.css";
+import "./styles/selectedNotes.css";
 import leftArrow from "../images/leftArrow.png";
 import EnterIcon from "../images/enterNotes.png";
 import EnterIconBlue from "../images/enterNotesBlue.png";
