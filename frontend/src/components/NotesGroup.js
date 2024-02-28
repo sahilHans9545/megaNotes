@@ -39,12 +39,12 @@ function NotesGroup(props) {
       </button>
       <div className="overflow-auto">
         <div id="groups">
-          {props.groups.map((e) => {
+          {props.groups.map((e, index) => {
             return (
               <div
                 className="group  py-3 ps-sm-4 px-3 px-sm-4 d-flex align-items-center gap-3 "
                 onClick={handleGroup}
-                key={e.id}
+                key={index}
                 selected_id={e._id}
               >
                 <div

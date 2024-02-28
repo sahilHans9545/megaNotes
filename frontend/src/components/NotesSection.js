@@ -5,19 +5,6 @@ import lockIcon from "../images/lockIcon.png";
 
 function NotesSection(props) {
   const [Notes, setNotes] = useState([]);
-  useEffect(() => {
-    if (localStorage.getItem("NotesData")) {
-      const fullData = JSON.parse(localStorage.getItem("NotesData"));
-      for (let i = 0; i < fullData.length; i++) {
-        if (fullData[i].id == props.selectedGroup) {
-          setNotes(fullData[i]);
-          break;
-        }
-      }
-    } else {
-      localStorage.setItem("NotesData", JSON.stringify([]));
-    }
-  }, [props.selectedGroup, props.noteAddedCount]);
 
   return (
     <div className="notesSection">

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import apiUrl from "../apiUrl";
 
-const Home = () => {
+const Home = ({ setUser }) => {
   const [newGroup, setNewGroup] = useState({});
   const [groups, setGroups] = useState([]);
   const [showCreateTab, setShowCreateTab] = useState(false);
@@ -14,44 +14,8 @@ const Home = () => {
   const [noteAddedCount, setNoteAddedCount] = useState(0);
 
   useEffect(() => {
-    addNewGroup();
-  }, [newGroup]);
-
-  useEffect(() => {
     getGroups();
   }, []);
-
-  const addNewGroup = async () => {
-    try {
-      const { token } = JSON.parse(localStorage.getItem("user"));
-      const options = {
-        method: "post",
-        url: `${apiUrl}/api/createGroup`,
-        data: {
-          groupName: newGroup.groupName,
-          groupColor: newGroup.groupColor,
-        },
-        headers: {
-          Authorization: `bearer ${token}`,
-        },
-      };
-      const result = await axios(options);
-      const resultData = result.data;
-      setGroups([
-        {
-          _id: resultData.id,
-          groupName: resultData.groupName,
-          groupColor: resultData.groupColor,
-        },
-        ...groups,
-      ]);
-    } catch (err) {
-      // toast(err.response.data.message);
-
-      console.log(err);
-      return false;
-    }
-  };
 
   const getGroups = async (req, res) => {
     try {
@@ -63,7 +27,6 @@ const Home = () => {
             Authorization: `bearer ${token}`,
           },
         });
-        console.log(response);
         setGroups(response.data.groups);
       }
     } catch (error) {
@@ -86,9 +49,12 @@ const Home = () => {
       />
       {showCreateTab && (
         <CreateNoteTab
-          newGroup={newGroup}
-          setNewGroup={setNewGroup}
+          selectedGroup={selectedGroup}
+          setSelectedGroup={setSelectedGroup}
           setShowCreateTab={setShowCreateTab}
+          groups={groups}
+          setGroups={setGroups}
+          setUser={setUser}
         />
       )}
     </div>

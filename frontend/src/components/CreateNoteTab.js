@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import "./createNoteTab.css";
+import apiUrl from "../apiUrl";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const colorArray = [
   "#B38BFA",
@@ -13,6 +17,7 @@ const colorArray = [
 function CreateNoteTab(props) {
   const [InputText, setInputText] = useState("");
   const [Color, setColor] = useState("");
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setInputText(e.target.value);
   };
@@ -28,6 +33,47 @@ function CreateNoteTab(props) {
     }
     setColor(e.target.id);
   };
+  const addNewGroup = async () => {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("user"));
+      const options = {
+        method: "post",
+        url: `${apiUrl}/api/createGroup`,
+        data: {
+          groupName: InputText,
+          groupColor: Color,
+        },
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      };
+      const result = await axios(options);
+      const resultData = result.data;
+
+      props.setGroups([
+        {
+          _id: resultData.id,
+          groupName: resultData.groupName,
+          groupColor: resultData.groupColor,
+        },
+        ...props.groups,
+      ]);
+      props.setSelectedGroup(resultData.id);
+      document
+        .querySelector(".selectedGroup")
+        .classList.remove("selectedGroup");
+      document.querySelector("#groups .group").classList.add("selectedGroup");
+    } catch (err) {
+      // toast(err.response.data.message);
+
+      if (err.response.status === 401) {
+        toast(err.response.data.error);
+        props.setUser("");
+        navigate("/login");
+      }
+      return false;
+    }
+  };
 
   const handleSubmit = () => {
     if (InputText === "") {
@@ -37,14 +83,7 @@ function CreateNoteTab(props) {
       alert("Select a Color !");
       return;
     }
-    let id = new Date().getTime();
-    props.setNewGroup({ groupName: InputText, groupColor: Color });
-    const notesData = JSON.parse(localStorage.getItem("NotesData"));
-    localStorage.setItem(
-      "NotesData",
-      JSON.stringify([...notesData, { id: id, notes: [] }])
-    );
-
+    addNewGroup();
     setColor("");
     setInputText("");
     props.setShowCreateTab(false);

@@ -1,9 +1,0 @@
-NotesData = [  {"id":1686049975002,"notes":[{"time":"10:10 Am","date":"6 May 2023","text":"Mummy ka birthday hai aaj."},
-{"time":"10:54 Am","date":"4 May 2023","text":"2 din baad Mummy ka birthday hai."}] }    ]
-
-
-
-
-
-
-[{"id":1686049975002,"notes":[{"time":"10:10 Am","date":"6 May 2023","text":"Mummy ka birthday hai aaj."},{"time":"10:54 Am","date":"4 May 2023","text":"2 din baad Mummy ka birthday hai."},{"time":"9pm","date":"3 March","text":"naya message aagya bhenchod"},{"time":"9pm","date":"3 March","text":"Khana bhi khana hai abhi jldi"},{"time":"9pm","date":"3 March","text":"Khana bhi"}]},{"id":1686122860780,"notes":[]},{"id":1686124225487,"notes":[{"time":"9pm","date":"3 March","text":"Khuch krle bhai\n"}]}]

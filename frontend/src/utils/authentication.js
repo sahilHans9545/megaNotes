@@ -24,7 +24,6 @@ export const handleLogin = async (email, password, rememberMe, setUser) => {
         userId: result.data.userInfo.userId,
       },
     });
-    console.log(result);
 
     // if (rememberMe) {
     const userData = {
@@ -56,7 +55,6 @@ export const handleSignUp = async (email, password, setUser) => {
       },
     };
     const result = await axios(options);
-    console.log(result);
     setUser({
       isLoggedIn: true,
       userData: {
